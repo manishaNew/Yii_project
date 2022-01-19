@@ -65,3 +65,5 @@ http://www.yiiframework.com
 
 Please refer below url for the functionality : - 
 http://localhost/crud_project/index.php?r=site/login
+
+Refer router_master.sql file in the root directory for database
