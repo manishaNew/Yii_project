@@ -101,47 +101,32 @@ class TempRouterMasterController extends Controller
 
 			$model = new UploadFile;
 			$routerMaster = new RouterMaster;
-			//echo '<pre>';print_R($_FILES);exit;
-			//$file = CUploadedFile::getInstance($model,'csv_file');
-		//	echo '1';exit;
 			if(isset($_FILES['UploadFile']))
 			{
-				
-	
 				$model->attributes=$_FILES['UploadFile'];
+				//If invalid file then return error msg
 				if(!$model->validate()){
 					$file_errors = $model->getErrors()['csv_file']??[];
-					// print_r($file_errors);exit;
 					$file_error_msg = implode(' , ',$file_errors);
-					
 					Yii::app()->user->setFlash('error', $file_error_msg);
 					$this->redirect(array('RouterMaster/excelView')); 
 				}
-			//	echo '1';exit;
+			
 				if(!empty($_FILES['UploadFile']['tmp_name']['csv_file']))
 				{
-					
 					$file = CUploadedFile::getInstance($model,'csv_file');
-					
-		
 					$fp = fopen($file->tempName, 'r');
 					if($fp)
 					{
 						$cnt=0;
 						while(($line = fgetcsv($fp, 1000, ";")) != FALSE){
-						
-						//	$line = fgetcsv($fp, 1000, ",");
-						//	print_r($line); exit;
 							if($cnt>0){
-	
-							
 								$row_data = explode(',',$line[0])??[];
 								$temp_model = new TempRouterMaster;
 								$temp_model->sapid = $row_data[0]??'';
 								$temp_model->hostname  = $row_data[1]??'';
 								$temp_model->loopback  = $row_data[2]??'';
 								$temp_model->mac_id  = $row_data[3]??'';
-								
 								$validation_flag = 0;
 								$fail_validation_reason = '';
 								$routerMaster->sapid = $row_data[0]??'';
@@ -150,34 +135,32 @@ class TempRouterMasterController extends Controller
 								$routerMaster->mac_id  = $row_data[3]??'';
 								$fail_validation_reason_array=[];
 								if($routerMaster->validate() ){
-									
 									$validation_flag=1;
 								}else{
-								//	print_r($routerMaster->getErrors());exit;
 									$fail_validation_reason_array=$routerMaster->getErrors();
 								}
 								
 								if(!$temp_model->validate()){
 									$validation_flag=2;
 								}
-								
 								$fail_validation_reason=json_encode(array_merge($fail_validation_reason_array,$temp_model->getErrors()));
-		
 								$temp_model->success_status = $validation_flag;
 								$temp_model->fail_validation_reason = $fail_validation_reason;
 								$temp_model->save(false);
 						
 								
-							}
+							}else{
+								$uploaded_header = $line[0];
+								if($uploaded_header!='sap_id,hostname,loopback,mac_id'){
+									Yii::app()->user->setFlash('error', 'Column names are incorrect.');
+									$this->redirect(array('RouterMaster/excelView')); 
+								}
+							}	
 							$cnt++;
 		
 						}
-						
 						$this->redirect(Yii::app()->createAbsoluteUrl('routerMaster/admin'));
-		
-					}
-					//    echo	 $content = fread($fp, filesize($file->tempName));
-						
+					}	
 				}
 			}
 		}
