@@ -199,7 +199,6 @@ class RouterMasterController extends Controller
 		}
 	}
 
-	
 	public function actionExcelView(){
 		$model = new UploadFile();
 		$this->render('excel_view',['model'=>$model]);
