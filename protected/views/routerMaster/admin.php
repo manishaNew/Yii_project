@@ -33,6 +33,9 @@ $('.search-form form').submit(function(){
 .success{
 	background: white;
 }
+.grid-view table.items tr:hover{
+	background:transparent !important;
+}
 	</style>
 
 <h1>View Router Data</h1>
@@ -153,12 +156,25 @@ $this->widget('zii.widgets.grid.CGridView', array(
             data: data,
             url: jQuery(this).attr('href'),
             success: function(data, textStatus, jqXHR) {
+
 				var response= $.parseJSON(data);
+				$(row).removeClass('danger');
+				$(row).removeClass('success');
+				$(row).removeClass('duplicate');
+				$(row).removeClass('selected');
+			
 				if(response.success_status == 1){
 					alert("Record Updated Successfully...");
+					$(row).addClass('success');
 				}else{
 					alert("Record Update Failed......");
+					if(response.success_status == 2){
+						$(row).addClass('duplicate');
+					}else{
+						$(row).addClass('danger');
+					}
 				}
+				// $('#router-master-grid').yiiGridView('update');
 				$('.fail_validation_reason', row).html(response.fail_validation_reason);
             },
           

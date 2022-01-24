@@ -5697,3 +5697,107 @@ in C:\xampp\htdocs\crud_project\index.php (13)
 2022/01/24 18:21:11 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
 in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
 in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:25:20 [warning] [application] Failed to set unsafe attribute "name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:25:20 [warning] [application] Failed to set unsafe attribute "type" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:25:20 [warning] [application] Failed to set unsafe attribute "tmp_name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:25:20 [warning] [application] Failed to set unsafe attribute "error" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:25:20 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:29:09 [warning] [application] Failed to set unsafe attribute "name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:29:09 [warning] [application] Failed to set unsafe attribute "type" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:29:09 [warning] [application] Failed to set unsafe attribute "tmp_name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:29:09 [warning] [application] Failed to set unsafe attribute "error" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:29:09 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:29:09 [error] [php] Array to string conversion (C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php:146)
+Stack trace:
+#0 C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php(146): implode()
+#1 C:\xampp\htdocs\crud_project\framework\web\actions\CInlineAction.php(49): TempRouterMasterController->actionReadExcel()
+#2 C:\xampp\htdocs\crud_project\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\crud_project\framework\web\CController.php(286): TempRouterMasterController->runAction()
+#4 C:\xampp\htdocs\crud_project\framework\web\CController.php(265): TempRouterMasterController->runActionWithFilters()
+#5 C:\xampp\htdocs\crud_project\framework\web\CWebApplication.php(282): TempRouterMasterController->run()
+#6 C:\xampp\htdocs\crud_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\crud_project\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\crud_project\index.php(13): CWebApplication->run()
+REQUEST_URI=/crud_project/index.php?r=TempRouterMaster/ReadExcel
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (146)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:30:37 [warning] [application] Failed to set unsafe attribute "name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:30:37 [warning] [application] Failed to set unsafe attribute "type" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:30:37 [warning] [application] Failed to set unsafe attribute "tmp_name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:30:37 [warning] [application] Failed to set unsafe attribute "error" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:30:37 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:08 [warning] [application] Failed to set unsafe attribute "name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:08 [warning] [application] Failed to set unsafe attribute "type" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:08 [warning] [application] Failed to set unsafe attribute "tmp_name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:08 [warning] [application] Failed to set unsafe attribute "error" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:08 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:52 [warning] [application] Failed to set unsafe attribute "name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:52 [warning] [application] Failed to set unsafe attribute "type" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:52 [warning] [application] Failed to set unsafe attribute "tmp_name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:52 [warning] [application] Failed to set unsafe attribute "error" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:31:52 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:34:57 [warning] [application] Failed to set unsafe attribute "name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:34:57 [warning] [application] Failed to set unsafe attribute "type" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:34:57 [warning] [application] Failed to set unsafe attribute "tmp_name" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:34:57 [warning] [application] Failed to set unsafe attribute "error" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)
+2022/01/24 18:34:57 [warning] [application] Failed to set unsafe attribute "size" of "UploadFile".
+in C:\xampp\htdocs\crud_project\protected\controllers\TempRouterMasterController.php (106)
+in C:\xampp\htdocs\crud_project\index.php (13)

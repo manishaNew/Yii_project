@@ -51,7 +51,6 @@ class TempRouterMasterController extends Controller
 			unset($_POST['temp_router_master']['fail_validation_reason']);
 			$routerMaster = new RouterMaster;
 			$temp_model = TempRouterMaster::model()->findByPk($id);
-
 			$temp_model->sapid = $_POST['temp_router_master']['sapid']??'';
 			$temp_model->hostname  = $_POST['temp_router_master']['hostname']??'';
 			$temp_model->loopback  = $_POST['temp_router_master']['loopback']??'';
@@ -61,19 +60,21 @@ class TempRouterMasterController extends Controller
 			$routerMaster->hostname  = $_POST['temp_router_master']['hostname']??'';
 			$routerMaster->loopback  = $_POST['temp_router_master']['loopback']??'';
 			$routerMaster->mac_id  = $_POST['temp_router_master']['mac_id']??'';
-
 			$validation_flag = 0;
 			$fail_validation_reason = '';
+			$fail_validation_reason_array = [];
 			if($routerMaster->validate()){
 				$validation_flag=1;
 			}else{
-				
-				$fail_validation_reason=json_encode($routerMaster->getErrors());
+				$fail_validation_reason_array=$routerMaster->getErrors();
 			}
-			
+			if(!$temp_model->validate()){
+				$validation_flag=2;
+			}
+			$fail_validation_reason=json_encode(array_merge($fail_validation_reason_array,$temp_model->getErrors()));
 			$temp_model->success_status = $validation_flag;
 			$temp_model->fail_validation_reason = $fail_validation_reason;
-			$temp_model->save();
+			$temp_model->save(false);
 
 			echo json_encode(['success_status'=>$validation_flag,'fail_validation_reason'=>$fail_validation_reason]);
 			exit;
@@ -152,7 +153,7 @@ class TempRouterMasterController extends Controller
 							}else{
 								$uploaded_header = $line[0];
 								if($uploaded_header!='sap_id,hostname,loopback,mac_id'){
-									Yii::app()->user->setFlash('error', 'Column names are incorrect.');
+									Yii::app()->user->setFlash('error', 'Column names are incorrect!!');
 									$this->redirect(array('RouterMaster/excelView')); 
 								}
 							}	
