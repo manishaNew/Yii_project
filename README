@@ -3,7 +3,7 @@ http://localhost/crud_project/index.php?r=site/login
 Username : admin
 Password : admin
 
-Also, Please Refer router_master.sql file in the root directory for database
+Also, Please Refer cisco.sql file in the root directory for database
 
 
 -------------------------------------------------------------------------------------------
