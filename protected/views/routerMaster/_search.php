@@ -34,10 +34,6 @@
 	</div>
 
 	
-	<div class="row">
-		<?php echo $form->label($model,'delete_status'); ?>
-		<?php echo $form->checkBox($model,'delete_status',array('value' => '1', 'uncheckValue'=>'0')); ?>
-	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>

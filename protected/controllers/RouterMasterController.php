@@ -7,7 +7,7 @@ class RouterMasterController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-	public $defaultAction = 'admin';
+	public $defaultAction = 'excelView';
 
 	/**
 	 * @return array action filters
@@ -29,7 +29,7 @@ class RouterMasterController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','excelView','ReadExcel'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -64,31 +64,43 @@ class RouterMasterController extends Controller
 	public function actionCreate()
 	{
 		$model=new RouterMaster;
-
-		// Uncomment the following line if AJAX validation is needed
-		  $this->performAjaxValidation($model);
+		$router = New TempRouterMaster;
+		$routerdata = $router->findAll();
 		
-		if(isset($_POST['RouterMaster']))
+		$transaction=Yii::app()->db->beginTransaction();
+		try
 		{
-			echo '1';
-			if (Yii::app()->request->isAjaxRequest) { 
-				echo '2';exit;
-				$this->performAjaxValidation($model);
-			 } 
-			
-			$model->attributes=$_POST['RouterMaster'];
-			
-			if($model->save())
-			{
-			
-				$this->redirect(array('view','id'=>$model->id));
-			}
-		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
+			//echo "<pre>";print_r($routerdata);exit;
+			
+			foreach ($routerdata as $router) {
+				//echo "<pre>";print_r($router);
+				$modelr=new RouterMaster;
+				$modelr->sapid = $router->sapid;
+				$modelr->hostname  = $router->hostname;
+				$modelr->loopback  = $router->loopback;
+				$modelr->mac_id  = $router->mac_id;
+				
+				if(!$modelr->validate())
+				{
+				    $transaction->rollback();
+					//print_r($modelr->getErrors());exit;
+					Yii::app()->user->setFlash('error', "Please provide valid details.Please make sure no data in RED and Grey color. ");
+					$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				}else{
+					$modelr->save();
+				}
+			}
+			$transaction->commit();
+			TempRouterMaster::model()->deleteAll();
+			Yii::app()->user->setFlash('success', " Data Uploaded successfully.");
+			$this->redirect(Yii::app()->createAbsoluteUrl('routerMaster/index'));
+		}
+		catch(Exception $e)
+		{
+		$transaction->rollback();
+		}
+}
 
 	/**
 	 * Updates a particular model.
@@ -147,10 +159,10 @@ class RouterMasterController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new RouterMaster('search');
+		$model=new TempRouterMaster('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['RouterMaster']))
-			$model->attributes=$_GET['RouterMaster'];
+		if(isset($_GET['TempRouterMaster']))
+			$model->attributes=$_GET['TempRouterMaster'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -186,5 +198,13 @@ class RouterMasterController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	
+	public function actionExcelView(){
+		$model = new UploadFile();
+		$this->render('excel_view',['model'=>$model]);
+	}
+
+	
 	
 }
